@@ -26,9 +26,34 @@ export class UsersService {
     return await this.Users.findOne({ email: email }).lean();
   }
   async foundById(id) {
-    return await this.Users.findById(id).lean();
+    return await this.Users.findById(id)
+      .populate({
+        path: 'requestsFriends',
+        model: 'Users',
+        select: '_id firstName lastName email ',
+        options: { lean: true },
+      })
+      .populate({
+        path: 'requestSend',
+        model: 'Users',
+        select: '_id firstName lastName email ',
+        options: { lean: true },
+      })
+      .lean();
   }
-  async updateRefreshToken(id, refreshToken) {
-    await this.Users.findByIdAndUpdate(id, { refreshToken: refreshToken });
+  async updateUser(id, payload) {
+    return await this.Users.findByIdAndUpdate(id, { ...payload });
+  }
+  async getAll(query) {
+    let res = [];
+    if (query?.name) {
+      res = await this.Users.find({
+        firstName: { $regex: '.*' + query.name + '.*' },
+      }).select(['-password', '-refreshToken']);
+    } else {
+      res = await this.Users.find().select(['-password', '-refreshToken']);
+    }
+
+    return [...res];
   }
 }

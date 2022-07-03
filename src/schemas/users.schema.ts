@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 export type UsersDocument = Users & Document;
 
@@ -15,6 +15,10 @@ export class Users {
   password: string;
   @Prop()
   refreshToken: string;
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], unique: true })
+  requestSend: Users[];
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], unique: true })
+  requestsFriends: Users[];
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

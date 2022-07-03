@@ -19,5 +19,8 @@ export declare class UsersService {
     foundById(id: any): Promise<Omit<import("mongoose")._LeanDocument<import("src/schemas/users.schema").Users & import("mongoose").Document<any, any, any> & {
         _id: any;
     }>, "save" | "validate" | "remove" | "populate" | "$getAllSubdocs" | "$ignore" | "$isDefault" | "$isDeleted" | "$getPopulatedDocs" | "$isEmpty" | "$isValid" | "$locals" | "$markValid" | "$model" | "$op" | "$session" | "$set" | "$where" | "baseModelName" | "collection" | "db" | "delete" | "deleteOne" | "depopulate" | "directModifiedPaths" | "equals" | "errors" | "get" | "getChanges" | "increment" | "init" | "invalidate" | "isDirectModified" | "isDirectSelected" | "isInit" | "isModified" | "isNew" | "isSelected" | "markModified" | "modifiedPaths" | "modelName" | "overwrite" | "$parent" | "populated" | "replaceOne" | "schema" | "set" | "toJSON" | "toObject" | "unmarkModified" | "update" | "updateOne" | "validateSync" | "$isSingleNested">>;
-    updateRefreshToken(id: any, refreshToken: any): Promise<void>;
+    updateUser(id: any, payload: any): Promise<import("src/schemas/users.schema").Users & import("mongoose").Document<any, any, any> & {
+        _id: any;
+    }>;
+    getAll(query: any): Promise<any[]>;
 }

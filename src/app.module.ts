@@ -8,12 +8,18 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as dotenv from 'dotenv';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtGuard } from './auth/jwt.guard';
+import { FriendsModule } from './friends/friends.module';
+import { ChatsModule } from './chats/chats.module';
+import { MessagesModule } from './messages/messages.module';
 dotenv.config();
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     AuthModule,
     UsersModule,
+    FriendsModule,
+    ChatsModule,
+    MessagesModule,
     MongooseModule.forRoot(process.env.DATA_BASE),
   ],
   controllers: [AppController],

@@ -6,7 +6,6 @@ import { AuthController } from './controller.auth';
 import { JwtStrategy } from './jwt.strategy';
 import { LocalStrategy } from './local.strategy';
 import { RefreshTokenStrategy } from './refresh-token.strategy';
-
 @Module({
   imports: [
     UsersModule,

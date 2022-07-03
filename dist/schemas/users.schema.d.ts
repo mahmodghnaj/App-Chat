@@ -1,12 +1,4 @@
-/// <reference types="mongoose/types/aggregate" />
-/// <reference types="mongoose/types/connection" />
-/// <reference types="mongoose/types/cursor" />
-/// <reference types="mongoose/types/document" />
-/// <reference types="mongoose/types/error" />
-/// <reference types="mongoose/types/mongooseoptions" />
-/// <reference types="mongoose/types/pipelinestage" />
-/// <reference types="mongoose/types/schemaoptions" />
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 export declare type UsersDocument = Users & Document;
 export declare class Users {
     firstName: string;
@@ -14,5 +6,7 @@ export declare class Users {
     email: string;
     password: string;
     refreshToken: string;
+    requestSend: Users[];
+    requestsFriends: Users[];
 }
-export declare const UsersSchema: import("mongoose").Schema<Users, import("mongoose").Model<Users, any, any, any>, {}, {}>;
+export declare const UsersSchema: mongoose.Schema<Users, mongoose.Model<Users, any, any, any>, {}, {}>;

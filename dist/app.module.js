@@ -17,6 +17,9 @@ const mongoose_1 = require("@nestjs/mongoose");
 const dotenv = require("dotenv");
 const core_1 = require("@nestjs/core");
 const jwt_guard_1 = require("./auth/jwt.guard");
+const friends_module_1 = require("./friends/friends.module");
+const chats_module_1 = require("./chats/chats.module");
+const messages_module_1 = require("./messages/messages.module");
 dotenv.config();
 let AppModule = class AppModule {
 };
@@ -26,6 +29,9 @@ AppModule = __decorate([
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
+            friends_module_1.FriendsModule,
+            chats_module_1.ChatsModule,
+            messages_module_1.MessagesModule,
             mongoose_1.MongooseModule.forRoot(process.env.DATA_BASE),
         ],
         controllers: [app_controller_1.AppController],

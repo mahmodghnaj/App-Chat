@@ -73,7 +73,9 @@ let AuthService = class AuthService {
                 expiresIn: 60 * 60 * 24 * 360,
             }),
         ]);
-        await this.usersService.updateRefreshToken(payload._id, refreshToken);
+        await this.usersService.updateUser(payload._id, {
+            refreshToken: refreshToken,
+        });
         return {
             accessToken,
             refreshToken,
