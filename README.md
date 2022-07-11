@@ -1,8 +1,7 @@
-## Getting Started
+## Chat App
 
-First, run the development server:
+ A simple demo chat app built on:
+ Node.js,Nest.js and Socket.io
+ react,context-api-axios-material-ui-typescript
 
-```bash
-npm run dev
-# or
-yarn dev
+
