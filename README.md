@@ -1,10 +1,8 @@
+## Getting Started
 
-##Demo
-https://app-chat-two.vercel.app/
-
+First, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-```
